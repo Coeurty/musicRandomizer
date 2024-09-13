@@ -14,16 +14,19 @@ The script works with the following extensions: `mp3`, `wav`, `wma`, `flac`, `aa
 ### Example result
 
 **Before execution:**
+
 - Music1.mp3
 - Music2.mp3
 - Music3.mp3
 
 **After 1st execution:**
+
 - 15_Music2.mp3
 - 59_Music1.mp3
 - 90_Music3.mp3
 
 **After 2nd execution:**
+
 - 26_Music3.mp3
 - 48_Music2.mp3
 - 68_Music1.mp3
@@ -33,17 +36,16 @@ Each run generates a new random prefix for each file, existing or new.
 ## Building the Executable
 
 The npm package `pkg` is used to compile the js into an executable
-(https://www.npmjs.com/package/pkg)
+(<https://www.npmjs.com/package/pkg>)
 
 1. Install `pkg` globally using npm:
+
 ```sh
 npm install -g pkg
 ```
 
 2. Compile the script into an executable:
+
 ```sh
 pkg musicRandomizer.js --targets node16-win-x64
 ```
-
-
-
