@@ -5,20 +5,20 @@ async function getMusicFiles() {
   return dirContent.filter((f) => /\.(mp3|wav|wma|flac|aac|m4a|ogg)$/i.test(f));
 }
 
-function generateRandomHexPrefix() {
-  const randomHex = Math.floor(Math.random() * 100);
-  return randomHex.toString(10).padStart(2, "0") + "_";
+function generateRandomNumberPrefix() {
+  const randomNumber = Math.floor(Math.random() * 100);
+  return randomNumber.toString(10).padStart(2, "0") + "_";
 }
 
 async function renameMusicFiles() {
   const musicFiles = await getMusicFiles();
-  const hexPrefixRegex = /^[a-f0-9]{2}_/;
+  const numberPrefixRegex = /^[a-f0-9]{2}_/;
   musicFiles.forEach((fileName) => {
     let renamedFileName = fileName;
-    if (hexPrefixRegex.test(fileName)) {
+    if (numberPrefixRegex.test(fileName)) {
       renamedFileName = renamedFileName.slice(3);
     }
-    renamedFileName = generateRandomHexPrefix() + renamedFileName;
+    renamedFileName = generateRandomNumberPrefix() + renamedFileName;
     fs.rename(`./${fileName}`, `./${renamedFileName}`);
   });
 }
